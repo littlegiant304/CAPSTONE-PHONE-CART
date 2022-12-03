@@ -90,15 +90,15 @@
 
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" data-display="static">
-                                <div class="icon">
+                                aria-haspopup="true" aria-expanded="false" data-display="static" >
+                                <div class="icon" data-toggle="modal"  data-target="#cart" onclick="displayCart()">
                                     <i class="las la-shopping-cart"></i>
                                     <span class="cart-count" id="total-count"></span>
                                 </div>
                                 <p>Cart</p>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right">
+                            <!-- <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
                                     <div class="product">
                                         <div class="product-cart-details">
@@ -110,7 +110,7 @@
                                                 <span class="cart-product-qty">1</span>
                                                 x $84.00
                                             </span>
-                                        </div><!-- End .product-cart-details -->
+                                        </div>
 
                                         <figure class="product-image-container">
                                             <a href="product.html" class="product-image">
@@ -120,7 +120,7 @@
                                         </figure>
                                         <a href="#" class="btn-remove" title="Remove Product"><i
                                                 class="las la-times"></i></a>
-                                    </div><!-- End .product -->
+                                    </div>
 
                                     <div class="product">
                                         <div class="product-cart-details">
@@ -132,7 +132,7 @@
                                                 <span class="cart-product-qty">1</span>
                                                 x $76.00
                                             </span>
-                                        </div><!-- End .product-cart-details -->
+                                        </div>
 
                                         <figure class="product-image-container">
                                             <a href="product.html" class="product-image">
@@ -142,25 +142,67 @@
                                         </figure>
                                         <a href="#" class="btn-remove" title="Remove Product"><i
                                                 class="las la-times"></i></i></a>
-                                    </div><!-- End .product -->
-                                </div><!-- End .cart-product -->
+                                    </div>
+                                </div>
 
                                 <div class="dropdown-cart-total">
                                     <span>Total</span>
 
                                     <span class="cart-total-price">$160.00</span>
-                                </div><!-- End .dropdown-cart-total -->
+                                </div>
 
                                 <div class="dropdown-cart-action">
-                                    <a href="cart.html" class="btn btn-primary">View Cart</a>
+                                    <a href="" class="btn btn-primary" data-toggle="modal"  data-target="#cart" onclick="displayCart()">View Cart</a>
                                     <a href="#" class="btn btn-outline-primary-2"><span>Checkout</span><i
                                             class="las la-long-arrow-alt-right"></i></a>
-                                </div><!-- End .dropdown-cart-total -->
-                            </div><!-- End .dropdown-menu -->
+                                </div>
+                            </div> -->
                         </div><!-- End .cart-dropdown -->
                     </div><!-- End .header-right -->
                 </div><!-- End .container -->
             </div><!-- End .header-middle -->
+
+
+            <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header border-bottom-0">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Your Shopping Cart
+                      </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <table class="table table-image">
+                        <thead>
+                          <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Qty</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody id="cartModalBody">
+                       
+                        </tbody>
+                      </table> 
+                      <div class="d-flex justify-content-end">
+                        <h5>Total: <span class="price text-success" id = "total-cart"></span></h5>
+                      </div>
+                    </div>
+                    <div class="modal-footer border-top-0 d-flex justify-content-between">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-info" onclick="emptyCart()">Empty Cart</button>
+                      <button type="button" class="btn btn-success" onclick="checkOut()">Checkout</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
 
             <div class="header-bottom sticky-header">
                 <div class="container">
@@ -359,9 +401,9 @@
                         <label for="sortby">Sort by:</label>
                         <div class="select-custom">
                             <select name="sortby" id="sortby" class="form-control">
-                                <option value="popularity" selected="selected">Most Popular</option>
-                                <option value="rating">Apple</option>
-                                <option value="date">Samsung</option>
+                                <option value="popularity" selected="selected">All</option>
+                                <option value="iphone">IPhone</option>
+                                <option value="samsung">Samsung</option>
                             </select>
                         </div>
                     </div><!-- End .toolbox-sort -->
@@ -480,6 +522,10 @@
     <script type="module" src="../controllers/main.js"></script>
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/demos/demo-3.js"></script>
+    <!-- <script src="../models/Product.js"></script>
+    <script src="../Services/ProductService.js"></script>
+    <script src="../models/ProductInCart.js"></script>
+    <script src="../controllers/main.js"></script> -->
 </body>
 
 

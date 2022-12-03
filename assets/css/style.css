@@ -9759,4 +9759,34 @@ button:focus {
 
 /* CART */
 
-
+#cart .container {
+    padding: 2rem 0rem;
+  }
+  #cart  .table-image thead td, .table-image thead th{
+    border: 0;
+        color: #666;
+        font-size: 0.8rem;
+  }
+  
+    
+#cart    td, th {
+      vertical-align: middle;
+      text-align: center;
+/*       
+      &.qty {
+        max-width: 2rem;
+      } */
+    }
+  /* } */
+  
+  #cart  .price {
+    margin-left: 1rem;
+  }
+  
+  #cart .modal-footer {
+    padding-top: 0rem;
+  }
+  
+  #cart .changeUnits:hover{
+    cursor: pointer;
+ }
